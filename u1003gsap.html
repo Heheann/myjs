@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <title>GSAP</title>
+    <style>
+
+        div{
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                margin: 15px;
+
+        }
+
+        #a{
+            background-color: tomato;
+       }
+
+       #b{
+            background-color: pink;
+        }
+
+        #c{
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+
+    <script>
+        let t1 = gsap.timeline({repeat:2,repeatDelay:1});
+        t1.to("#a",{x:100,duration:1});
+        t1.to("#b",{y:50,duration:1});
+        t1.to("#c",{opacity:0.2,duration:1});
+
+    </script>
+    
+</body>
+</html>

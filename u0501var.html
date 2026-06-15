@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+ 
+    <script>
+        //宣告變數
+        var name="";
+        var height="";
+        var weight="";
+        var gender="";
+        var marriage=false;
+
+        name='阿凡達';
+        height=170;
+        weight=80;
+        gender='男';
+        marriage=true;
+
+
+        //object 物件型別
+
+        let emp={
+                no:1,
+                name:'花布丸',
+                h:150,
+                w:45,
+                gender:'女',
+                marriage:true,
+        };
+
+
+        document.write("<h1>員工健康調查表</h1>");
+        document.write("<hr>");
+        document.write("姓名:" + name +"<br>");
+        document.write("身高:" + height +"公分<br>");
+        document.write("體重:" + weight +"公斤<br>");
+        document.write("性別:" + gender +"<br>");
+        document.write("婚姻狀況" + marriage +"<br>");
+
+       
+       /* document.write("<hr>");
+        document.write("編號:" + emp.no +"<br>");
+        document.write("姓名:" + emp.name +"<br>");
+        document.write("身高:" + emp.h +"公分<br>");
+        document.write("體重:" + emp.w +"公斤<br>");
+        document.write("性別:" + emp.gender +"<br>");
+        document.write("婚姻狀況" + emp.marriage +"<br>"); */
+
+
+        //範本文字
+        document.write(`
+            <hr>
+            編號：${emp.no}<br>
+            姓名：${emp.name}<br>
+            身高：${emp.h}<br>
+            體重：${emp.w}<br>
+            婚姻狀況：${emp.marriage}<br>
+
+        `);
+
+        document.write("<h5>THE END</h5>");
+
+
+
+
+    </script>
+
+
+</body>
+</html>

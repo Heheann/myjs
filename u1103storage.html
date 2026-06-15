@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js localStorage</title>
+</head>
+<body>
+        <input type="number" id="t" placeholder="溫度" ><br>
+        <input type="number" id="h" placeholder="濕度"><br>
+        <button onclick="setData()">SET</button>
+        <button onclick="getData()">GET</button>    
+        <button onclick="myClear()">CLEAR</button>  
+        <div id="demo"> </div>  
+
+        <a href="u1102storage.html">Show local Storage Data</a>
+        <script>
+
+            /*
+            Web Storage API ,提供瀏覽器儲存 Key/value pair 的機制
+
+            Web Storage 內部有2個機制:
+            sessionStorage
+
+            localStorage:
+            在瀏覽器關閉並重新打開,資料仍然存在
+            儲存沒有過期日期的資料
+            只能透過jS, 或清除瀏覽器緩衝/本地端的資料清除
+            */
+
+            const t=document.getElementById('t');
+            const h=document.getElementById('h');
+
+
+            function setData(){
+                window.sessionStorage.setItem('t',t.value);   //記錄溫度
+                window.sessionStorage.setItem('h',h.value);   //記錄濕度
+                window.alert('local storage set OK!!')
+            }
+
+             function getData(){
+                let t=window.sessionStorage.getItem('t');   
+                let h=window.sessionStorage.getItem('h');  
+                demo.innerHTML=`溫度：${t}<br>
+                                濕度：${h}<br>`;
+            }
+
+            function myClear(){
+                window.sessionStorage.clear();
+                window.alert('localStorage Clear OK!');
+            }
+        </script>
+</body>
+</html>

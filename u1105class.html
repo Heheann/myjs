@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS　class</title>
+</head>
+<body>
+
+    <script>
+        //class 類別,藍圖
+
+    
+        class Person{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+
+            }
+            instroduce(){
+                console.log(`大家好我是${this.name},今年芳齡${this.age}!`);
+            }
+
+            birthday(){
+                this.age++;
+                console.log(`${this.name}生日快樂!恭喜你${this.age}歲了`);
+
+            }
+        }//class end
+
+        //建立物件實體
+        const p1=new Person ("小米",20);
+        p1.instroduce();
+        p1.birthday();
+
+        //--------------
+        //繼承
+        //子類別
+        class Employee extends Person{
+
+            constructor(name,age,position){
+                super(name,age);
+                this.position=position;
+
+            }
+
+            work(){
+                console.log(`${this.name}的職位是${this.position}`);
+            }
+
+        }
+
+        const e1=new Employee ("小多",20,"美食評論員");
+        e1.work();
+        e1.instroduce();
+        e1.birthday();
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS and Event</title>
+
+<style>
+    table{
+    width:100%;
+    border:3px solid peru;
+    border-collapse: collapse; 
+}
+
+    td{
+        border:1px gray solid;
+    }
+</style>
+
+</head>
+
+
+<body>
+<h1>九九乘法表</h1>
+<hr>
+<p id="result">顯示結果</p>
+
+    <script>
+
+        let k=0;
+        document.write("<table class='table'>");
+        //outer
+        for(let i=1;i<=9;i++){
+            document.write("<tr onmouseover='setTrBg(this)' onmouseout='clearTrBg(this)'>");
+            //inner
+            for(let j=1;j<=9;j++){
+                k=i*j;
+                document.write(`<td onmouseenter='SetTDFont(this)'  onmouseleave='clearTDFont(this)'>${i}x${j}=${k} </td>`);
+            }
+            document.write("</tr>");                                                                               
+        }
+        document.write("</table>")
+        //設定列的背景
+        function setTrBg(obj){
+
+            //透過JS 設定樣式CSS
+            obj.style.backgroundColor='pink';
+        }
+        function clearTrBg(obj){
+            obj.style.backgroundColor='transparent';
+        }
+        //設定格子文字的色彩
+        function SetTDFont(obj){
+            obj.style.color='green';
+            obj.style.cursor='pointer';
+            document.getElementById('result').innerHTML=obj.innerHTML;
+        }
+        //還原格子文字的色彩
+        function clearTDFont(obj){
+            obj.style.color='inherit';
+        }
+    </script>
+    
+</body>
+</html>

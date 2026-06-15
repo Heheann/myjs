@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS and function</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        div{
+            background-color: antiquewhite;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.25rem;
+            background-size: contain;
+
+            border: 3px transparent solid;
+            transition: transform 1.0s ease-in-out, border 1.0s ease-in-out;
+
+        }
+
+        div:hover{
+            border: 20px pink solid;
+            transform: scale(1.2);
+        }
+
+       /* div:nth-of-type(1){
+            background-image: url(images/drink/1.jpg);
+        }
+        div:nth-of-type(2){
+            background-image: url(images/drink/2.jpg);
+        }
+        div:nth-of-type(3){
+            background-image: url(images/drink/3.jpg);
+        }
+        div:nth-of-type(4){
+            background-image: url(images/drink/4.jpg);
+        }*/
+    </style>
+</head>
+
+
+
+<body onload="divBG()">
+    <h1>函數的四種基本狀態</h1>
+    <hr>
+    <div><span onclick="myfun()">無參數|無傳回值</span> </div>
+
+    <div><span onclick="yourfun('小花',10)">有參數|無傳回值</span></div>
+
+    <div><span onclick="document.querySelector('p:nth-of-type(3)').innerHTML=hisfun()">無參數|有傳回值</span></div>
+
+    <div> <span onclick="document.querySelector('p:nth-of-type(4)').innerHTML=herfun('曾有錢',10)">有參數|有傳回值</div>
+
+    <hr>
+
+    <p>
+
+    </p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+
+    <script>
+    //1.無參數|無傳回值
+    function myfun(){
+        document.querySelector('p:nth-of-type(1)').innerHTML="美式咖啡，買一送一!";
+    }
+
+    //2.有參數|無傳回值
+    function yourfun(name,qty){
+        document.querySelector('p:nth-of-type(2)').innerHTML=`${name}訂購了${qty}杯咖啡`;
+    }
+
+    //3.無參數|有傳回值
+    function hisfun(){
+        return "咖啡，香醇可口";
+    }
+
+    //4.有參數|有傳回值
+    function herfun(name,qty){
+        let price=120;
+        let totoal=price*qty;
+        let str=`${name}訂購了${qty}杯咖啡，總共是${totoal}元!`;
+        return str;
+    }
+    //div的背景圖
+    function divBG(){
+        for (let i=1;i<=4;i++){
+        document.querySelector('div:nth-of-type('+ i +')').style.backgroundImage=`url(images/drink/${i}.jpg)`;
+        }
+    }
+    </script>
+
+    
+
+
+
+
+
+</body>
+</html>

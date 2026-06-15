@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='demo1'></div>
+    <div id="demo2"></div>
+    <div id="demo3"></div>
+    <div id="demo4"></div>
+
+
+
+
+
+<script>
+    const d1=document.getElementById('demo1');
+    const d2=document.getElementById('demo2');
+    const d3=document.getElementById('demo3');
+    const d4=document.getElementById('demo4');
+
+    //無參數，無傳回值
+    let myfun=()=>{d1.innerHTML="我最愛喝的咖啡是美式咖啡"}
+    myfun();
+
+    //有參數，無傳回值
+    let yourfun=(name,coffee)=>{d2.innerHTML=`${name},您最愛的咖啡${coffee}`}
+    yourfun('曾愛河','Latte');
+
+    //無參數，有傳回值
+    let hisfun=()=>"再忙也要陪你喝一杯咖啡";
+    d3.innerHTML=hisfun();
+
+    //有參數，有傳回值
+    let herfun=(price,qty)=>`咖啡價格:${price}元，數量:${qty}杯，總計:${price*qty}元`
+     d4.innerHTML=herfun(200,2);
+    
+    </script>
+
+
+</body>
+
+</html>

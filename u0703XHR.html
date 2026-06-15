@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS XHR</title>
+</head>
+<body>
+    <button id="btn">LOAD</button>
+    <div id="demo"></div>
+
+    <script>
+
+        document.getElementById('btn').onclick=function(){
+            loadAJAX();
+        }
+
+        function loadAJAX (){
+            let url="coffee.txt";
+            let xhr=new XMLHttpRequest(); //透過此物件存取伺服器
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4 && this.status===200){
+                    let obj =xhr.response;
+                    document.getElementById("demo").innerHTML=xhr.responseText;
+
+                }
+            }
+            xhr.open('get',url,true); //初始要求
+            xhr.send(); //發送要求
+
+        }
+    </script>
+</body>
+</html>

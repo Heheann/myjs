@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <title>gsap </title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    
+    <script>
+        gsap.to(".demo", 
+        { rotation: 360, 
+            x: 300,
+             duration: 5,
+            ease:"elastic.out" });
+    </script>
+</body>
+</html>

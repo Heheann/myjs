@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS and astnc and await</title>
+</head>
+<body>
+    <h1>JAvaScript async and await</h1>
+    <hr>
+
+    <script>
+        /*JS中，ayanc 和await 要擷取資料時，要等待promise，必須要使用非同步操作，自動傳回一個promise物件*/
+
+        //建立一個非同步(async)的函數
+        async function fetchDate(){
+
+            try{
+                //等待fetch請求完成
+                let response=await fetch ('https://jsonplaceholder.typicode.com/users');
+
+                //等待回應解析為JSON
+
+                let data= await response.json();
+                console.log(data);
+                document.write("擷取資料成功");
+            }catch(error){
+
+                //如果請求過程中發生錯誤，捕捉錯誤並顯示出來
+                console.log("錯誤訊息:",error)
+
+
+            };
+            
+
+
+            
+        }
+
+        //呼叫fetchData()
+
+        fetchDate();
+    </script>
+    
+</body>
+</html>

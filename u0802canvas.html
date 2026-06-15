@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS and canvas</title>
+</head>
+<body>
+
+    <button id="slogan">Show Slogan</button>
+    <button id="image">Show Image</button>
+
+    <hr>
+
+    <canvas id="txtCanvas" width="500" height="75"></canvas>
+
+    <br>
+
+    <canvas id="imgCanvas" width="500" height="500"></canvas>
+
+    <script>
+
+        // 文字畫布
+        document.getElementById('slogan').addEventListener('click', function () {
+
+            const canvas = document.getElementById('txtCanvas');
+            const ctx = canvas.getContext('2d');
+
+            ctx.font = '24px Arial';
+            ctx.fillStyle = 'tomato';
+            ctx.fillText('Have a nice day', 50, 50);
+
+        });
+
+        // 圖片畫布
+        document.getElementById('image').addEventListener('click', function () {
+
+            const canvas = document.getElementById('imgCanvas');
+            const ctx = canvas.getContext('2d');
+
+            const img = new Image(); // 建立一個 Image 物件
+
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, 500, 500);
+            };
+
+            img.src = 'images/drink/3.jpg';
+
+        });
+
+    </script>
+    
+</body>
+</html>
