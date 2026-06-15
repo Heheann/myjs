@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom color picker</title>
+</head>
+<body>
+
+    <h3>色彩選擇</h3>
+
+    <color-picker></color-picker>
+
+    <script>
+        class PickerColor extends HTMLElement{
+
+            constructor(){
+                super();
+                this.attachShadow({mode:'open'}) ;  //可以從外部存取
+            }
+
+            connectedCallback(){    //瀏覽器建立<coler-picker> 後即呼叫
+                const saveColor=localStorage.getItem('color') || '#000000'; //取得之前儲存的顏色
+                this.shadowRoot.innerHTML=`
+                <input type="color" value="${saveColor}">
+                `;
+                
+                this.shadowRoot.querySelector('input').addEventListener('input',(e)=>{
+                    localStorage.setItem('color',e.target.value);   //取得目前顏色值
+                })
+
+
+            }
+        }
+
+        customElements.define('color-picker',PickerColor);
+    </script>
+    
+</body>
+</html>
